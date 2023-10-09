@@ -1,0 +1,20 @@
+GameProject {
+ ID "GRAD-Spectator"
+ GUID "5E6EE1F29BD43311"
+ TITLE "GRAD Spectator"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig HEADLESS {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+ }
+}

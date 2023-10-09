@@ -1,0 +1,87 @@
+SCR_AIWorld : "{01DC74137CFDDB6A}Prefabs/AI/SCR_AIWorld_Arland.et" {
+ coords 1346.659 38.105 2927.093
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 1344.366 38.134 2931.983
+}
+TagManager : "{2FA9E172CAB1857A}Prefabs/MP/Managers/TagManager.et" {
+ coords 1348.536 38 2929.23
+}
+SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ components {
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic GRAD_SpectatorSpawnLogic "{5D44B78DAD98E7F9}" {
+    m_sForcedLoadout "lala"
+    m_sForcedSpawnPoint "Spectator"
+   }
+  }
+ }
+ coords 1349.605 38 2930.107
+ {
+  SCR_FactionManager "5E76E236890B9E1C" {
+   ID "56E685E92F1B7E7A"
+   coords 32.528 0 15.742
+   Factions {
+    SCR_Faction "{56DEAC40D2DBC8B1}" {
+     m_bIsPlayable 1
+    }
+    SCR_Faction "{56DEAC40D3C2E623}" {
+     m_bIsPlayable 1
+    }
+    SCR_Faction "{56DEAC40D132400B}" {
+     m_bIsPlayable 1
+    }
+   }
+  }
+  SCR_LoadoutManager {
+   ID "56E685E92F1B7E2A"
+   m_aPlayerLoadouts {
+    SCR_FactionPlayerLoadout "{5E76DE07F06C2F9D}" {
+     m_sLoadoutName "US Medic"
+     m_sLoadoutResource "{C9E4FEAF5AAC8D8C}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Medic.et"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{5E76DE07035BDFD2}" {
+     m_sLoadoutName "US Unarmed"
+     m_sLoadoutResource "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Unarmed.et"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{5E8D00328BD55FB7}" {
+     m_sLoadoutName "USSR Unarmed"
+     m_sLoadoutResource "{98EB9CDD85B8C92C}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Unarmed.et"
+     m_sAffiliatedFaction "USSR"
+    }
+   }
+  }
+ }
+}
+GenericEntity : "{1AAC905FBE6CF779}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V2_USSR.et" {
+ coords 1277.632 37.826 2935.672
+}
+GRAD_Spectator : "{31EE805FBAA30234}Prefabs/GRAD_Spectator.et" {
+ coords 1284.78 37.841 2928.48
+}
+GenericEntity : "{37FF769500E5C13C}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V2_FIA.et" {
+ coords 1275.385 38 2929.215
+}
+GenericEntity : "{4214EDEEC86C62E4}Prefabs/FlagPole_Respawn_US.et" {
+ coords 1268.605 37.499 2934.074
+}
+SCR_SpawnPoint : "{45225582B358C31A}PrefabsEditable/SpawnPoints/E_SpawnPoint_USSR.et" {
+ coords 1301.948 37.733 2857.745
+}
+GenericEntity : "{562DE7B0FCE88A39}PrefabsEditable/E_FlagPole_Respawn_US.et" {
+ coords 1268.854 37.915 2928.918
+}
+SCR_SpawnPoint : "{72713ED566A531F3}PrefabsEditable/SpawnPoints/E_SpawnPoint_FIA.et" {
+ coords 1177.521 38.009 2828.903
+}
+SCR_SpawnPoint : "{987991DCED3DC197}PrefabsEditable/SpawnPoints/E_SpawnPoint.et" {
+ coords 1272.583 38.374 2935.299
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Spectator"
+ }
+}
+SCR_SpawnPoint : "{CEA2B24051A44525}PrefabsEditable/SpawnPoints/E_SpawnPoint_US.et" {
+ coords 1381.492 38.01 2878.45
+}

@@ -1,0 +1,24 @@
+GenericEntity : "{0DBE058F13F0C7E8}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V1_US.et" {
+ ID "50C6D20663830070"
+ components {
+  ActionsManagerComponent "{5E931446539A6454}" {
+   ActionContexts {
+    UserActionContext "{5E9314465D6B8B38}" {
+     ContextName "main"
+     Position PointInfo "{5E9314466769ACB3}" {
+      Offset 0 1.25 0
+     }
+    }
+   }
+   additionalActions {
+    GRAD_SpectatorUserAction "{5E9314465B7DAB56}" {
+     ParentContextList {
+      "main"
+     }
+     Duration 1
+    }
+   }
+  }
+ }
+ coords 1267.127 37.602 2931.028
+}

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{20F3A5D12D1C4847}worlds/GRAD-Spectator-Test2.ent"
+ Configurations {
+  ENTResourceClass PC {
+  }
+  ENTResourceClass XBOX_ONE : PC {
+  }
+  ENTResourceClass XBOX_SERIES : PC {
+  }
+  ENTResourceClass PS4 : PC {
+  }
+  ENTResourceClass HEADLESS : PC {
+  }
+ }
+}

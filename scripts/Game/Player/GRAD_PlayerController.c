@@ -20,30 +20,6 @@ modded class SCR_PlayerController : PlayerController
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void SetPreviousFactionKey(FactionKey factionKey)
-	{
-		m_previousFactionKey = factionKey; 
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	IEntity GetPreviousEntity()
-	{
-		return m_previousEntity;
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	void SetPreviousEntity(IEntity entity)
-	{
-		m_previousEntity = entity; 
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	IEntity GetPreviousSpectator()
-	{
-		return m_previousSpectator;
-	}
-	
-	//------------------------------------------------------------------------------------------------
 	void SetPreviousSpectator(IEntity spectator)
 	{
 		m_previousSpectator = spectator; 
@@ -62,6 +38,8 @@ modded class SCR_PlayerController : PlayerController
 	//------------------------------------------------------------------------------------------------	
 	override void OnControlledEntityChanged(IEntity from, IEntity to)
 	{
+		PrintFormat("GRAD Spectator - OnControlledEntityChanged() - FROM: %1 | TO: %2", from, to);
+		
 		SCR_ChimeraCharacter character = SCR_ChimeraCharacter.Cast(to);
 		
 		if (!character)
@@ -70,25 +48,11 @@ modded class SCR_PlayerController : PlayerController
 			return;
 		}
 		
-		SetPreviousFactionKey(character.GetFaction().GetFactionKey());
+		m_previousFactionKey = character.GetFaction().GetFactionKey();
 		
-		SetPreviousEntity(to);
-		
-		EnableSpectatorHotkey();
+		m_previousEntity = to;
 		
 		super.OnControlledEntityChanged(from, to);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	void EnableSpectatorHotkey()
-	{
-		InputManager inputManager = GetGame().GetInputManager();
-		if (inputManager)
-		{
-			//Print("GRAD Spectator - Input Manager available");
-
-			inputManager.AddActionListener("DisableSpectator", EActionTrigger.DOWN, DisableSpectator);
-		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -96,69 +60,34 @@ modded class SCR_PlayerController : PlayerController
 	{
 		Print("GRAD Spectator - DisableSpectator()", LogLevel.NORMAL);
 		
-		// Disable spectator mode for given player
-		DisableSpectator_2(GetGame().GetPlayerController().GetPlayerId());
+		// If this is executed on the server, remote execute it on the client
+		if (Replication.IsServer())
+		{
+			Print("GRAD Spectator - is server", LogLevel.NORMAL);
+			Rpc(RpcDo_Broadcast_EnableSpectator, GetPlayerId());
+			return;
+		}
 		
-		PrintFormat("GRAD Spectator - playerId %1", GetGame().GetPlayerController().GetPlayerId());
+		/* ---------- */
+		
+		// Delete the spectator
+		SCR_EntityHelper.DeleteEntityAndChildren(m_previousSpectator);
+		
+		SetPreviousSpectator(null);
+				
+		/* ---------- */
 		
 		// Disable the spectator context for keybind input to leave the spectator
 		InputManager inputManager = GetGame().GetInputManager();
-		inputManager.ResetContext("SpectatorContext");
+		if (!inputManager)
+			return;
 		
+		// Disable the spectator context for keybind input to leave the spectator
+		inputManager.ActivateContext("SpectatorContext", 0); // setting duration to 0 disables the context
+		inputManager.RemoveActionListener("DisableSpectator", EActionTrigger.DOWN, DisableSpectator);
+		
+		// Show hint
 		SCR_HintManagerComponent.GetInstance().ShowCustomHint( "is now disabled", "GRAD Spectator", 10.0);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	void DisableSpectator_2(int playerId)
-	{
-		if (!m_RplComponent)
-			m_RplComponent = RplComponent.Cast(FindComponent(RplComponent));
-		
-		PrintFormat("GRAD Spectator - RplComponent: %1", m_RplComponent);
-
-		if (m_RplComponent.Role() == RplRole.Authority)
-		{
-			Print("GRAD Spectator - DisableSpectator triggered on authority");
-		}
-		else
-		{
-			Print("GRAD Spectator - DisableSpectator triggered NOT on authority");
-		}
-		
-		Rpc(RpcAsk_DisableSpectator, playerId);
-		
-		// Printing the new spectator to the console
-		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
-		PrintFormat("GRAD Spectator - player '%1' is no more spectator", GetGame().GetPlayerManager().GetPlayerName(playerId));
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
-	protected void RpcAsk_DisableSpectator(int playerId)
-	{
-		// This function is only executed on the server
-		
-		Print("GRAD Spectator - (Broadcast) DisableSpectator");
-		
-		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
-		
-		IEntity controlledEntity = playerController.GetPreviousEntity();
-		IEntity spectator = playerController.GetPreviousSpectator();
-		
-		PrintFormat("GRAD Spectator - PlayerController: %1", playerController);
-		PrintFormat("GRAD Spectator - ControlledEntity: %1", controlledEntity);
-		PrintFormat("GRAD Spectator - Spectator: %1", spectator);
-
-		playerController.SetPreviousSpectator(null);
-		
-		// both works: setControlledEntity and setPossessedEntity
-		//if (controlledEntity) playerController.SetControlledEntity(controlledEntity);
-		//if (controlledEntity) playerController.SetPossessedEntity(controlledEntity);
-		
-		SCR_EntityHelper.DeleteEntityAndChildren(spectator);
-				
-		//Vielleicht auch das hier zum löschen
-		//RplComponent.DeleteRplEntity(controlledEntity, false);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -173,6 +102,8 @@ modded class SCR_PlayerController : PlayerController
 			Rpc(RpcDo_Broadcast_EnableSpectator, GetPlayerId());
 			return;
 		}
+
+		/* ---------- */
 		
 		// Get entities position
 		vector pos = GetControlledEntity().GetOrigin();
@@ -193,11 +124,17 @@ modded class SCR_PlayerController : PlayerController
 		//{0D9A6EC9C72BF397}Prefabs/Editor/Camera/ManualCameraStrategy.et
 		//{127C64F4E93A82BC}Prefabs/Editor/Camera/ManualCameraPhoto.et
 		
-		// Enable the spectator context for keybind input to leave the spectator
-		InputManager inputManager = GetGame().GetInputManager();
-		inputManager.ActivateContext("SpectatorContext", 3600000);
-		
 		SetPreviousSpectator(spectator);
+		
+		/* ---------- */
+		
+		InputManager inputManager = GetGame().GetInputManager();
+		if (!inputManager)
+			return;
+		
+		// Enable the spectator context for keybind input to leave the spectator
+		inputManager.AddActionListener("DisableSpectator", EActionTrigger.DOWN, DisableSpectator);
+		inputManager.ActivateContext("SpectatorContext", 3600000);
 		
 		// Show hint
 		SCR_HintManagerComponent.GetInstance().ShowCustomHint( "is now enabled", "GRAD Spectator", 10.0);
@@ -212,11 +149,28 @@ modded class SCR_PlayerController : PlayerController
 		
 		Print("GRAD Spectator - RpcDo_Broadcast_EnableSpectator()", LogLevel.NORMAL);
 		
-		PrintFormat("GRAD Spectator - local playerId: %1", GetGame().GetPlayerController().GetPlayerId());
+		PrintFormat("GRAD Spectator - playerId: %1", GetGame().GetPlayerController().GetPlayerId());
 		
 		if (playerId != GetGame().GetPlayerController().GetPlayerId())
 			return;
 		
 		EnableSpectator();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
+	protected void RpcDo_Broadcast_DisableSpectator(int playerId)
+	{
+		// This function does not seem to be executed on every client but only on the client that I need to.
+		// Perhaps player controller is not replicated from server to every client but only to the needed client
+		
+		Print("GRAD Spectator - RpcDo_Broadcast_DisableSpectator()", LogLevel.NORMAL);
+		
+		PrintFormat("GRAD Spectator - playerId: %1", GetGame().GetPlayerController().GetPlayerId());
+		
+		if (playerId != GetGame().GetPlayerController().GetPlayerId())
+			return;
+		
+		DisableSpectator();
 	}
 };

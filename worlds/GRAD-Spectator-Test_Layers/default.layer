@@ -55,23 +55,17 @@ SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/E
   }
  }
 }
-GenericEntity : "{1AAC905FBE6CF779}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V2_USSR.et" {
- coords 1277.632 37.826 2935.672
-}
-SCR_ChimeraCharacter MyEntity : "{26A9756790131354}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Rifleman.et" {
- coords 1286.807 38 2913.311
-}
-GenericEntity : "{37FF769500E5C13C}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V2_FIA.et" {
- coords 1275.385 38 2929.215
-}
 GenericEntity : "{4214EDEEC86C62E4}Prefabs/FlagPole_Respawn_US.et" {
- coords 1268.605 37.499 2934.074
+ coords 1393.215 38.009 2874.96
 }
 SCR_SpawnPoint : "{45225582B358C31A}PrefabsEditable/SpawnPoints/E_SpawnPoint_USSR.et" {
  coords 1301.948 37.733 2857.745
 }
 GenericEntity : "{562DE7B0FCE88A39}PrefabsEditable/E_FlagPole_Respawn_US.et" {
- coords 1268.854 37.915 2928.918
+ coords 1372.73 38.333 2870.026
+}
+GenericEntity : "{7073B0AC6AB01C33}Prefabs/FlagPole_Respawn_USSR.et" {
+ coords 1313.445 37.817 2852.359
 }
 SCR_SpawnPoint : "{72713ED566A531F3}PrefabsEditable/SpawnPoints/E_SpawnPoint_FIA.et" {
  coords 1177.521 38.009 2828.903
@@ -84,4 +78,13 @@ SCR_SpawnPoint : "{987991DCED3DC197}PrefabsEditable/SpawnPoints/E_SpawnPoint.et"
 }
 SCR_SpawnPoint : "{CEA2B24051A44525}PrefabsEditable/SpawnPoints/E_SpawnPoint_US.et" {
  coords 1381.492 38.01 2878.45
+}
+GenericEntity : "{DEDCE3DBEC732825}PrefabsEditable/E_FlagPole_Respawn_USSR.et" {
+ coords 1296.092 37.818 2848.293
+}
+GenericEntity : "{E981DF43C177B15F}Prefabs/FlagPole_Respawn_FIA.et" {
+ coords 1189.743 38.01 2824.34
+}
+GenericEntity : "{FF859FCDDB3C056F}PrefabsEditable/E_FlagPole_Respawn_FIA.et" {
+ coords 1170.972 38.01 2819.386
 }

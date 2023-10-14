@@ -11,7 +11,20 @@ SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/E
  components {
   SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
    m_SpawnLogic GRAD_SpectatorSpawnLogic "{5D44B78DAD98E7F9}" {
-    m_sForcedLoadout "lala"
+    m_aSpectatorLoadoutAssignments {
+     GRAD_SpectatorLoadoutAssignment "{5E9CD9211E8CA97B}" {
+      m_sFactionKey "US"
+      m_sLoadoutName "US Unarmed"
+     }
+     GRAD_SpectatorLoadoutAssignment "{5E9CD9213D8F328F}" {
+      m_sFactionKey "USSR"
+      m_sLoadoutName "USSR Unarmed"
+     }
+     GRAD_SpectatorLoadoutAssignment "{5E9CD92141FB9226}" {
+      m_sFactionKey "FIA"
+      m_sLoadoutName "FIA Unarmed"
+     }
+    }
     m_sForcedSpawnPoint "Spectator"
    }
   }
@@ -50,6 +63,11 @@ SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/E
      m_sLoadoutName "USSR Unarmed"
      m_sLoadoutResource "{98EB9CDD85B8C92C}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Unarmed.et"
      m_sAffiliatedFaction "USSR"
+    }
+    SCR_FactionPlayerLoadout "{5E9CD92153CA29D4}" {
+     m_sLoadoutName "FIA Unarmed"
+     m_sLoadoutResource "{854C04F0EA2129CC}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Unarmed.et"
+     m_sAffiliatedFaction "FIA"
     }
    }
   }

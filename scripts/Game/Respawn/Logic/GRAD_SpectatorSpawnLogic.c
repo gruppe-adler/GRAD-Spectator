@@ -5,10 +5,10 @@
 [BaseContainerProps(category: "Respawn")]
 class GRAD_SpectatorSpawnLogic : SCR_SpawnLogic
 {
-	[Attribute("", uiwidget: UIWidgets.EditBox, category: "Respawn", desc: "Default loadout for players to spawn with or empty if none")]
-	protected string m_sForcedLoadout;
+	[Attribute(defvalue: "", uiwidget: UIWidgets.Object, desc: "Spectator Loadout Assignments", params: "", category: "GRAD Spectator")];
+	protected ref array<ref GRAD_SpectatorLoadoutAssignment> m_aSpectatorLoadoutAssignments;
 	
-	[Attribute("", uiwidget: UIWidgets.EditBox, category: "Respawn", desc: "Default spawn point for players to spawn in or empty if none")]
+	[Attribute("", uiwidget: UIWidgets.EditBox, category: "Respawn", desc: "Default spawn point for players to spawn in or empty if none", category: "GRAD Spectator")]
 	protected string m_sForcedSpawnPoint;
 	
 	protected ref set<int> m_DisconnectingPlayers = new set<int>();
@@ -16,22 +16,29 @@ class GRAD_SpectatorSpawnLogic : SCR_SpawnLogic
 	//------------------------------------------------------------------------------------------------
 	protected bool GetForcedLoadout(out SCR_BasePlayerLoadout loadout, Faction faction)
 	{
-		if (m_sForcedLoadout.IsEmpty())
+		if (m_aSpectatorLoadoutAssignments.Count() == 0)
+		{
+			Print("GRAD Spectator - no spectator loadouts configured", LogLevel.WARNING);
 			return false;
+		}
 		
-		string forcedLoadout;
+		string loadoutName;
 		
-		if (faction.GetFactionKey() == "US")
-			forcedLoadout = "US Unarmed";
+		foreach (GRAD_SpectatorLoadoutAssignment spectatorLoadoutAssignment : m_aSpectatorLoadoutAssignments)
+		{
+			if (spectatorLoadoutAssignment.GetFactionKey() == faction.GetFactionKey())
+			{
+				loadoutName = spectatorLoadoutAssignment.GetLoadoutName();
+				Print(string.Format("GRAD Spectator - loadout name: %1", loadoutName), LogLevel.NORMAL);
+				break;
+			}
+		}
 		
-		if (faction.GetFactionKey() == "USSR")
-			forcedLoadout = "USSR Unarmed";
-		
-		loadout = GetGame().GetLoadoutManager().GetLoadoutByName(forcedLoadout);
+		loadout = GetGame().GetLoadoutManager().GetLoadoutByName(loadoutName);
 		
 		if (!loadout)
 		{
-			Print(string.Format("GRAD Spectator - spawn logic did not find loadout by name: %1", forcedLoadout), LogLevel.WARNING);
+			Print(string.Format("GRAD Spectator - spawn logic did not find loadout by name: %1", loadoutName), LogLevel.WARNING);
 			return false;
 		}
 		return true;

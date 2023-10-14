@@ -1,0 +1,24 @@
+GenericEntity : "{8528347E5F47F2A4}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V1_FIA.et" {
+ ID "50C6D20663830070"
+ components {
+  ActionsManagerComponent "{5E9CAAB2A63FBBBC}" {
+   ActionContexts {
+    UserActionContext "{5E9CAAB2A1C14A69}" {
+     ContextName "main"
+     Position PointInfo "{5E9CAAB2AD8A8425}" {
+      Offset 0 1.25 0
+     }
+    }
+   }
+   additionalActions {
+    GRAD_SpectatorUserAction "{5E9CAAB2A84C6CEF}" {
+     ParentContextList {
+      "main"
+     }
+     Duration 1
+    }
+   }
+  }
+ }
+ coords 1170.231 38.01 2819.319
+}

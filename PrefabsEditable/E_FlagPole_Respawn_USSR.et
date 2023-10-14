@@ -1,0 +1,24 @@
+GenericEntity : "{14B2D417839BF8A3}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V1_USSR.et" {
+ ID "50C6D20663830070"
+ components {
+  ActionsManagerComponent "{5E9CAAB349D57F81}" {
+   ActionContexts {
+    UserActionContext "{5E9CAAB348F309DB}" {
+     ContextName "main"
+     Position PointInfo "{5E9CAAB350C243A3}" {
+      Offset 0 1.25 0
+     }
+    }
+   }
+   additionalActions {
+    GRAD_SpectatorUserAction "{5E9CAAB354B2AEA8}" {
+     ParentContextList {
+      "main"
+     }
+     Duration 1
+    }
+   }
+  }
+ }
+ coords 1296.064 37.824 2847.912
+}

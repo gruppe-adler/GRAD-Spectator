@@ -50,7 +50,7 @@ playerController.DisableSpectator();
 <img width="412" alt="Screenshot 2023-10-14 170308" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/002abc6a-38ce-44e3-b4f3-df79487abbee">
 
 ## Links
-- Workshop: https://reforger.armaplatform.com/workshop/5E68F6FA97DAB5CD-GRADUndead
+- Workshop: https://reforger.armaplatform.com/workshop/???
 - Discord: https://discord.com/invite/ZDqp45q
 - Website: https://gruppe-adler.de/home
 - Forum: https://forum.gruppe-adler.de/

@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/9b8ebab9-7b92-4c4f-bdb2-bb589bb91194.png">
+    <img src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/21e2db8a-ee89-42ee-b7f3-222bdaef27a5.png">
 </p>
 
 <p align="center">
@@ -45,9 +45,10 @@ playerController.DisableSpectator();
 4. In SpawnLogic enter the name of the spectator spawn point
 5. Place a spawn point without faction in your world and sets its name like in the SpawnLogic (Step 4)
 
-<img width="413" alt="Screenshot 2023-10-14 165704" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/8e4ba574-30c0-4d87-b370-b4dce302e666">
-<img width="414" alt="Screenshot 2023-10-14 170208" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/4217cf45-b67b-4f1c-9b7c-03a176c63f65">
-<img width="412" alt="Screenshot 2023-10-14 170308" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/002abc6a-38ce-44e3-b4f3-df79487abbee">
+<img width="412" alt="Screenshot 2023-10-14 170308" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/237fbdc6-25fe-45eb-82e0-31200abfedf2">
+<img width="414" alt="Screenshot 2023-10-14 170208" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/a8b569e5-3c24-490e-8a2b-90008bedb9f8">
+<img width="413" alt="Screenshot 2023-10-14 165704" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/3f19b207-4381-4694-9210-7e067971cc08">
+
 
 ## Links
 - Workshop: https://reforger.armaplatform.com/workshop/5E6EE1F29BD43311-GRADSpectator

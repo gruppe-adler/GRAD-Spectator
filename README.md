@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/y0014984/GRAD-Spectator/releases/latest">
-        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg?style=flat-square" alt="GRAD Spectator Version">
+        <img src="https://img.shields.io/badge/Version-0.1.1-blue.svg?style=flat-square" alt="GRAD Spectator Version">
     </a>
     <a href="https://www.bistudio.com/community/licenses/arma-public-license-share-alike">
         <img src="https://img.shields.io/badge/License-APL-red.svg?style=flat-square" alt="GRAD Spectator License">
@@ -50,7 +50,8 @@ playerController.DisableSpectator();
 <img width="412" alt="Screenshot 2023-10-14 170308" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/002abc6a-38ce-44e3-b4f3-df79487abbee">
 
 ## Links
-- Workshop: https://reforger.armaplatform.com/workshop/???
+- Workshop: https://reforger.armaplatform.com/workshop/5E6EE1F29BD43311-GRADSpectator
+- GitHub: https://github.com/gruppe-adler/GRAD-Spectator
 - Discord: https://discord.com/invite/ZDqp45q
 - Website: https://gruppe-adler.de/home
 - Forum: https://forum.gruppe-adler.de/

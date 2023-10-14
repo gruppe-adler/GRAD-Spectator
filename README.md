@@ -54,7 +54,7 @@ playerController.DisableSpectator();
 - GitHub: https://github.com/gruppe-adler/GRAD-Spectator
 - Discord: https://discord.com/invite/ZDqp45q
 - Website: https://gruppe-adler.de/home
-- Forum: https://forum.gruppe-adler.de/
+- Forum: https://forum.gruppe-adler.de
 
 ## License
 GRAD Undead is licensed under the ([APL](https://www.bohemia.net/community/licenses/arma-public-license)).

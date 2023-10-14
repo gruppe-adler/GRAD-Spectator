@@ -5,7 +5,7 @@ class GRAD_SpectatorUserAction : ScriptedUserAction
 	//------------------------------------------------------------------------------------------------
 	override bool HasLocalEffectOnlyScript()
 	{
-	    return false;
+	    return true;
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -29,21 +29,9 @@ class GRAD_SpectatorUserAction : ScriptedUserAction
 	//------------------------------------------------------------------------------------------------
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		// Get playerId of the player controlling the entity
-		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-		
-		// Get position of the entity
-		vector pos = pUserEntity.GetOrigin();
-		
-		// Change position to be above and behind the entity
-		pos[2] = pos[2] - 4;
-		pos[1] = pos[1] + 3;
-		
 		// Enable spectator mode for given player
-		//SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-		//gameMode.EnableSpectator(playerId, pos);
-		GRAD_Spectator specComp = GRAD_Spectator.GetInstance();
-		specComp.EnableSpectator(playerId, pos);
+		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerController());
+		playerController.EnableSpectator();
 	}
 	
 	//------------------------------------------------------------------------------------------------

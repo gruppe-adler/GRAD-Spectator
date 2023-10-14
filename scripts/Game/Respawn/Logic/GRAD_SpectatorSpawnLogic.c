@@ -198,23 +198,11 @@ class GRAD_SpectatorSpawnLogic : SCR_SpawnLogic
 	}
 
 	//------------------------------------------------------------------------------------------------
-	void EnableSpectator(int playerId)
+	protected void EnableSpectator(int playerId)
 	{
-		// Get the entity the player is controlling
-		IEntity entity = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
-		
-		// Get entities position
-		vector pos = entity.GetOrigin();
-		
-		// Change position to be above and behind the entity
-		pos[2] = pos[2] - 4;
-		pos[1] = pos[1] + 3;
-		
 		// Enable spectator mode for given player
-		//SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-		//gameMode.EnableSpectator(playerId, pos);
-		GRAD_Spectator specComp = GRAD_Spectator.GetInstance();
-		specComp.EnableSpectator(playerId, pos);
+		SCR_PlayerController playerController = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
+		playerController.EnableSpectator();
 	}
 	
 };

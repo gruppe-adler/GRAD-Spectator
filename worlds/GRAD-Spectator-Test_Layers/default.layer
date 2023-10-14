@@ -58,8 +58,8 @@ SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/E
 GenericEntity : "{1AAC905FBE6CF779}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V2_USSR.et" {
  coords 1277.632 37.826 2935.672
 }
-GRAD_Spectator : "{31EE805FBAA30234}Prefabs/GRAD_Spectator.et" {
- coords 1284.78 37.841 2928.48
+SCR_ChimeraCharacter MyEntity : "{26A9756790131354}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Rifleman.et" {
+ coords 1286.807 38 2913.311
 }
 GenericEntity : "{37FF769500E5C13C}PrefabsEditable/Auto/Structures/Military/Flags/E_FlagPole_02_V2_FIA.et" {
  coords 1275.385 38 2929.215

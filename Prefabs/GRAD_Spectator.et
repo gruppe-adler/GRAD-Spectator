@@ -1,9 +1,0 @@
-GRAD_Spectator {
- ID "5E928E2DF2CD491B"
- components {
-  RplComponent "{5E928E2DE932FBF4}" {
-   Streamable Disabled
-  }
- }
- coords 1285.403 37.805 2929.927
-}

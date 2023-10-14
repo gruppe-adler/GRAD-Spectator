@@ -60,8 +60,15 @@ modded class SCR_PlayerController : PlayerController
 	{
 		Print("GRAD Spectator - DisableSpectator()", LogLevel.NORMAL);
 		
+		if (!m_RplComponent)
+			m_RplComponent = RplComponent.Cast(FindComponent(RplComponent));
+		
+		PrintFormat("Master: %1", m_RplComponent.IsMaster());
+		PrintFormat("Owner: %1", m_RplComponent.IsOwner());
+		PrintFormat("Proxy: %1", m_RplComponent.IsProxy());
+		
 		// If this is executed on the server, remote execute it on the client
-		if (Replication.IsServer())
+		if (!m_RplComponent.IsOwner())
 		{
 			Print("GRAD Spectator - is server", LogLevel.NORMAL);
 			Rpc(RpcDo_Broadcast_EnableSpectator, GetPlayerId());
@@ -95,8 +102,15 @@ modded class SCR_PlayerController : PlayerController
 	{
 		Print("GRAD Spectator - EnableSpectator()", LogLevel.NORMAL);
 		
+		if (!m_RplComponent)
+			m_RplComponent = RplComponent.Cast(FindComponent(RplComponent));
+		
+		PrintFormat("Master: %1", m_RplComponent.IsMaster());
+		PrintFormat("Owner: %1", m_RplComponent.IsOwner());
+		PrintFormat("Proxy: %1", m_RplComponent.IsProxy());
+		
 		// If this is executed on the server, remote execute it on the client
-		if (Replication.IsServer())
+		if (!m_RplComponent.IsOwner())
 		{
 			Print("GRAD Spectator - is server", LogLevel.NORMAL);
 			Rpc(RpcDo_Broadcast_EnableSpectator, GetPlayerId());

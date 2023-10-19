@@ -1,0 +1,114 @@
+SCR_AIWorld : "{01DC74137CFDDB6A}Prefabs/AI/SCR_AIWorld_Arland.et" {
+ components {
+  NavmeshWorldComponent "{5584F30E67F617AD}" {
+   NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{5AF8B9A179E3C542}" : "{418D8BF6A342C0BD}Configs/Navmesh/Navmesh_GM_Arland_Soldier.conf" {
+    }
+   }
+  }
+  NavmeshWorldComponent "{5584F30EEFEE1223}" {
+   NavmeshSettings ChimeraNavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{5CF6FEFB1C2A1B4B}" {
+     NavmeshFile "{A0AEEB1E7EF474F9}worlds/GameMaster/Navmeshes/GM_Arland_vehicles.nmn"
+    }
+   }
+  }
+ }
+ coords 4772.179 26.323 10658.781
+}
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4926.701 34.279 10717.344
+}
+TagManager : "{2FA9E172CAB1857A}Prefabs/MP/Managers/TagManager.et" {
+ coords 6.248 0 20.101
+}
+SCR_GameModeEditor GameMode_GameMaster_Full : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ components {
+  SCR_EditorCameraDefaultsComponent "{530EB67957FF1565}" {
+   m_aPositions {
+    SCR_CameraCoordinates "{530EB67B0FD7776F}" {
+     m_vCameraPosition 3091.22 105.48 1532.69
+     m_vCameraAngles -2.4 303.88 0
+    }
+    SCR_CameraCoordinates "{530EB67BCC8CA498}" {
+     m_vCameraPosition 2853.84 97.94 2969.39
+     m_vCameraAngles -12.02 479.26 0
+    }
+    SCR_CameraCoordinates "{530EB67BB8FC1FEC}" {
+     m_vCameraPosition 1893.28 58.29 2899.16
+     m_vCameraAngles -5.12 615.16 0
+    }
+    SCR_CameraCoordinates "{530ECD979F9A89CD}" {
+     m_vCameraPosition 1337.48 39.182 1363.03
+     m_vCameraAngles -2.4 134.683 0
+    }
+    SCR_CameraCoordinates "{530ECD967B114EDF}" {
+     m_vCameraPosition 2587 177.148 2193.25
+     m_vCameraAngles -13.5 -48.317 0
+    }
+    SCR_CameraCoordinates "{530ECD96618A88C5}" {
+     m_vCameraPosition 2567.42 51.28 950.664
+     m_vCameraAngles -19.8 87.282 0
+    }
+    SCR_CameraCoordinates "{530ECD9641E9FF5E}" {
+     m_vCameraPosition 2497.76 139.155 1632.75
+     m_vCameraAngles -17.7 -157.517 0
+    }
+    SCR_CameraCoordinates "{530ECD962E3DC5CF}" {
+     m_vCameraPosition 3673.41 74.144 2643.3
+     m_vCameraAngles -6.3 -99.017 0
+    }
+   }
+  }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic GRAD_SpectatorSpawnLogic "{5D28B7ADCD4F95B9}" {
+    m_aSpectatorLoadoutAssignments {
+     GRAD_SpectatorLoadoutAssignment "{5EA6BE4010BEECC2}" {
+      m_sFactionKey "US"
+      m_sLoadoutName "US Unarmed"
+     }
+     GRAD_SpectatorLoadoutAssignment "{5EA6BE401C15B6BD}" {
+      m_sFactionKey "USSR"
+      m_sLoadoutName "USSR Unarmed"
+     }
+     GRAD_SpectatorLoadoutAssignment "{5EA6BE4028690539}" {
+      m_sFactionKey "FIA"
+      m_sLoadoutName "FIA Unarmed"
+     }
+    }
+    m_sForcedSpawnPoint "Spectator"
+   }
+  }
+  SCR_SaveLoadComponent "{58FA739CBE3E9FC5}" {
+   m_DebugHeaderResourceName "{2BBBE828037C6F4B}Missions/22_GM_Arland.conf"
+  }
+ }
+ coords 2879.89 70.498 1577.563
+ {
+  SCR_FactionManager {
+   ID "56E685E92F1B7E7A"
+   Factions {
+    SCR_Faction "{56DEAC40D2DBC8B1}" {
+     m_bIsPlayable 1
+    }
+    SCR_Faction "{56DEAC40D3C2E623}" {
+    }
+    SCR_Faction "{56DEAC40D132400B}" {
+    }
+   }
+  }
+  SCR_EditorSettingsEntity {
+   ID "5982CAB0B3E6AA4C"
+   m_bOverrideBaseModes 1
+   m_BaseModes 63
+  }
+ }
+}
+SCR_MapLocator {
+ coords 0 0 0
+ m_WorldDirections SCR_MapLocationQuadHint "{5AAA92CDBEAC91B2}" : "{C1534F222D0F74D2}Configs/Map/MapLocatorHints/LocationHintsArland.conf" {
+ }
+}
+HitRegistrationManager HitRegManager1 : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
+ coords 5.17 0 19.153
+}

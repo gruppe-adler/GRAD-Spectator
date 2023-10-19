@@ -44,7 +44,7 @@ modded class SCR_PlayerController : PlayerController
 		
 		if (!character)
 		{
-			Print("GRAD Spectator - SCR_ChimeraCharacter missing");
+			//Print("GRAD Spectator - SCR_ChimeraCharacter missing");
 			return;
 		}
 		
@@ -119,8 +119,10 @@ modded class SCR_PlayerController : PlayerController
 
 		/* ---------- */
 		
+		IEntity entity = GetControlledEntity();
+		
 		// Get entities position
-		vector pos = GetControlledEntity().GetOrigin();
+		vector pos = entity.GetOrigin();
 		
 		// Change position to be above and behind the entity
 		pos[2] = pos[2] - 4;

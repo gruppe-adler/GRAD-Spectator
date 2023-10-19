@@ -76,12 +76,6 @@ class GRAD_SpectatorSpawnLogic : SCR_SpawnLogic
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	//override void OnInit(SCR_RespawnSystemComponent owner)
-	//{
-	//	super.OnInit(owner);
-	//}
-
-	//------------------------------------------------------------------------------------------------
 	override void OnPlayerRegistered_S(int playerId)
 	{
 		// this function is called the first time the player joins the mission
@@ -109,6 +103,8 @@ class GRAD_SpectatorSpawnLogic : SCR_SpawnLogic
 		// This function is called if the player's entity dies; this is the respawn
 		
 		super.OnPlayerEntityLost_S(playerId);
+		
+		// Spawn the player at the spectator spawn point and enable spectator 5 sec later
 		Spawn(playerId);
 	}
 	
@@ -164,10 +160,10 @@ class GRAD_SpectatorSpawnLogic : SCR_SpawnLogic
 			return;
 		}
 
-		// Get the spawn point named "Spectator" else select random one from the same faction
+		// Get the spawn point named "Spectator" else select random one from the same faction		
 		SCR_SpawnPoint spawnPoint;
-			if (!GetForcedSpawnPoint(spawnPoint, "Spectator"))
-				spawnPoint = SCR_SpawnPoint.GetRandomSpawnPointForFaction(faction.GetFactionKey());
+		if (!GetForcedSpawnPoint(spawnPoint, "Spectator"))
+			spawnPoint = SCR_SpawnPoint.GetRandomSpawnPointForFaction(faction.GetFactionKey());
 
 		// Test if spawn point is set else re-run this spawn function
 		if (!spawnPoint)

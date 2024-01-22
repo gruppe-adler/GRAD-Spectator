@@ -38,11 +38,11 @@ playerController.EnableSpectator();
 playerController.DisableSpectator();
 ```
 
-## How to configure menu spawn logic
+## How to configure menu spawn logic (ignore that the screenshots say "spectator spawn logic")
 1. Add a loadout to every faction in your gamemode that can be assigned to spectators (In LoadoutManager)
 2. Change the Menu Spawn Logic settings in the SCR_RespawnSystemComponent of your GameMode
-    a. configure the Spectator Loadout Assignments
-    b. enter the name of the spectator spawn point
+  1. configure the Spectator Loadout Assignments
+  2. enter the name of the spectator spawn point
 3. Place a spawn point without faction in your world and sets its name like in the SpawnLogic (Step 4)
 
 <img width="412" alt="Screenshot 2023-10-14 170308" src="https://github.com/y0014984/GRAD-Spectator/assets/50139270/237fbdc6-25fe-45eb-82e0-31200abfedf2">

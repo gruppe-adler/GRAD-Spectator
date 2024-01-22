@@ -61,17 +61,17 @@ SCR_GameModeEditor GameMode_GameMaster_Full : "{DA3986AF1B5032B7}Prefabs/MP/Mode
    }
   }
   SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-   m_SpawnLogic GRAD_SpectatorSpawnLogic "{5D28B7ADCD4F95B9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{606CAD8E528EC5E3}" {
     m_aSpectatorLoadoutAssignments {
-     GRAD_SpectatorLoadoutAssignment "{5EA6BE4010BEECC2}" {
+     GRAD_SpectatorLoadoutAssignment "{606CAD8FCFC5438D}" {
       m_sFactionKey "US"
       m_sLoadoutName "US Unarmed"
      }
-     GRAD_SpectatorLoadoutAssignment "{5EA6BE401C15B6BD}" {
+     GRAD_SpectatorLoadoutAssignment "{606CAD8FD593DAE0}" {
       m_sFactionKey "USSR"
       m_sLoadoutName "USSR Unarmed"
      }
-     GRAD_SpectatorLoadoutAssignment "{5EA6BE4028690539}" {
+     GRAD_SpectatorLoadoutAssignment "{606CAD8FD22AF920}" {
       m_sFactionKey "FIA"
       m_sLoadoutName "FIA Unarmed"
      }
@@ -85,15 +85,17 @@ SCR_GameModeEditor GameMode_GameMaster_Full : "{DA3986AF1B5032B7}Prefabs/MP/Mode
  }
  coords 2879.89 70.498 1577.563
  {
-  SCR_FactionManager {
+  SCR_FactionManager "606CA448F9166FCB" {
    ID "56E685E92F1B7E7A"
    Factions {
     SCR_Faction "{56DEAC40D2DBC8B1}" {
      m_bIsPlayable 1
     }
     SCR_Faction "{56DEAC40D3C2E623}" {
+     m_bIsPlayable 1
     }
     SCR_Faction "{56DEAC40D132400B}" {
+     m_bIsPlayable 1
     }
    }
   }
@@ -101,6 +103,23 @@ SCR_GameModeEditor GameMode_GameMaster_Full : "{DA3986AF1B5032B7}Prefabs/MP/Mode
    ID "5982CAB0B3E6AA4C"
    m_bOverrideBaseModes 1
    m_BaseModes 63
+  }
+  SCR_LoadoutManager {
+   ID "56E685E92F1B7E2A"
+   m_aPlayerLoadouts {
+    SCR_FactionPlayerLoadout "{606CAD8C46CA6437}" {
+     m_sLoadoutName "US Unarmed"
+     m_sLoadoutResource "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Unarmed.et"
+    }
+    SCR_FactionPlayerLoadout "{606CAD8C5488438C}" {
+     m_sLoadoutName "USSR Unarmed"
+     m_sLoadoutResource "{98EB9CDD85B8C92C}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Unarmed.et"
+    }
+    SCR_FactionPlayerLoadout "{606CAD8C5B2DAD3F}" {
+     m_sLoadoutName "FIA Unarmed"
+     m_sLoadoutResource "{854C04F0EA2129CC}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Unarmed.et"
+    }
+   }
   }
  }
 }

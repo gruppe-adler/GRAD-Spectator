@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/y0014984/GRAD-Spectator/releases/latest">
-        <img src="https://img.shields.io/badge/Version-0.1.1-blue.svg?style=flat-square" alt="GRAD Spectator Version">
+        <img src="https://img.shields.io/badge/Version-0.1.5-blue.svg?style=flat-square" alt="GRAD Spectator Version">
     </a>
     <a href="https://www.bistudio.com/community/licenses/arma-public-license-share-alike">
         <img src="https://img.shields.io/badge/License-APL-red.svg?style=flat-square" alt="GRAD Spectator License">

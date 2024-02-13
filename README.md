@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/y0014984/GRAD-Spectator/releases/latest">
-        <img src="https://img.shields.io/badge/Version-0.1.5-blue.svg?style=flat-square" alt="GRAD Spectator Version">
+        <img src="https://img.shields.io/badge/Version-0.1.6-blue.svg?style=flat-square" alt="GRAD Spectator Version">
     </a>
     <a href="https://www.bistudio.com/community/licenses/arma-public-license-share-alike">
         <img src="https://img.shields.io/badge/License-APL-red.svg?style=flat-square" alt="GRAD Spectator License">
@@ -22,7 +22,8 @@ GRAD Spectator is a mod for Arma Reforger that enables a spectator mode via resp
 
 ## Features
 - custom action to enable spectator (GRAD_SpectatorUserAction)
-- 6 flag poles (2x US, 2x USSR, 2x FIA) will spectator action attached
+- 6 flag poles (2x US, 2x USSR, 2x FIA) with spectator action attached for World Editor
+- 3 flag poles (US, USSR, FIA) with spectator action attached for Game Master
 - custom spectator spawn logic (enter spectator after first death)
 - custom keybind to leave spectator (END - can be configured in keybinds)
 

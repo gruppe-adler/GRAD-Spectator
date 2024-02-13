@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{EB11235AD3A2AE22}Configs/Editor/PlaceableEntities/SpectatorFlags.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}
